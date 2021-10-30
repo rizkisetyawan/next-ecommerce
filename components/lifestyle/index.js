@@ -1,5 +1,7 @@
 import React from 'react';
-import { Box, Typography, Stack, Chip } from '@mui/material';
+import {
+  Box, Typography, Stack, Chip,
+} from '@mui/material';
 import Product from '../product';
 // import Image from 'next/image';
 
