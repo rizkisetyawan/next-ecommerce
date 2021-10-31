@@ -1,20 +1,21 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { styled, alpha } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  InputBase,
+} from '@mui/material';
+import { Menu, Search } from '@mui/icons-material';
 
-const Search = styled('div')(({ theme }) => ({
+const SearchWrapper = styled('div')(({ theme, trigger }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  backgroundColor: alpha(trigger ? theme.palette.common.white : theme.palette.primary.main, 0.15),
   '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    backgroundColor: alpha(trigger ? theme.palette.common.white : theme.palette.primary.main, 0.25),
   },
   marginLeft: theme.spacing(1),
   width: 'auto',
@@ -43,9 +44,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function Topbar({ color }) {
+export default function Topbar({ trigger = false }) {
   return (
-    <AppBar color={color} elevation={0} sx={{ flexGrow: 1 }}>
+    <AppBar color={trigger ? 'primary' : 'transparent'} elevation={0} sx={{ flexGrow: 1 }}>
       <Toolbar>
         <IconButton
           size="large"
@@ -54,30 +55,31 @@ export default function Topbar({ color }) {
           aria-label="open drawer"
           sx={{ mr: 2 }}
         >
-          <MenuIcon />
+          <Menu />
         </IconButton>
         <Typography
           variant="h6"
           noWrap
           component="div"
+          color={!trigger && 'primary'}
           sx={{ flexGrow: 1, display: 'block' }}
         >
-          AM
+          E-Catalog
         </Typography>
-        <Search>
+        <SearchWrapper trigger={trigger}>
           <SearchIconWrapper>
-            <SearchIcon />
+            <Search />
           </SearchIconWrapper>
           <StyledInputBase
             placeholder="Search…"
             inputProps={{ 'aria-label': 'search' }}
           />
-        </Search>
+        </SearchWrapper>
       </Toolbar>
     </AppBar>
   );
 }
 
 Topbar.propTypes = {
-  color: PropTypes.string.isRequired,
+  trigger: PropTypes.bool,
 };

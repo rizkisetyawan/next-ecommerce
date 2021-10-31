@@ -40,7 +40,7 @@ const Lifestyle = ({ listLifestyle }) => (
             key={row.id}
             label={row.name}
             color="primary"
-            variant="outlined"
+            variant="filled"
           />
         ))
       }
