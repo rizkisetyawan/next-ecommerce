@@ -3,6 +3,7 @@ import Layout from './layout';
 import Lifestyle from './lifestyle';
 import Exclusive from './exclusive';
 import Product from './product';
+import Slider from './slider';
 
 export {
   Kategori,
@@ -10,4 +11,5 @@ export {
   Lifestyle,
   Exclusive,
   Product,
+  Slider,
 };

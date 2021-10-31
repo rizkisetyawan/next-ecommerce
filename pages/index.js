@@ -1,18 +1,20 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Layout, Kategori, Lifestyle, Exclusive,
+  Layout, Kategori, Lifestyle, Exclusive, Slider,
 } from '../components';
 import { getCategory, getProducts } from '../services';
 import { getChildrenData } from '../utils';
 
 export default function Home({ listLifestyle, listKatPro, productExclusive }) {
   return (
-    <Layout>
+    <>
+      <Layout />
+      <Slider />
       <Kategori listKatPro={listKatPro} />
       <Exclusive products={productExclusive} />
       <Lifestyle listLifestyle={listLifestyle} />
-    </Layout>
+    </>
   );
 }
 
