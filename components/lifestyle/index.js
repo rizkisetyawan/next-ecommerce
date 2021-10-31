@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   Box, Typography, Stack, Chip,
 } from '@mui/material';
+import Link from 'next/link';
 import Product from '../product';
 import { getProducts } from '../../services';
 
@@ -30,9 +31,11 @@ const Lifestyle = ({ listLifestyle, filled = false }) => {
           Lifestyle
         </Typography>
         {!filled && (
-          <Typography variant="caption" color="text.secondary">
-            Lihat Semua
-          </Typography>
+          <Link href="/lifestyle">
+            <Typography variant="caption" color="text.secondary" sx={{ cursor: 'pointer' }}>
+              Lihat Semua
+            </Typography>
+          </Link>
         )}
       </Box>
       <Stack

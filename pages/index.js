@@ -20,9 +20,9 @@ export default function Home({
       <Header />
       <Slider />
       <Kategori listKatPro={listKatPro} />
-      <Products title="Exclusive Awal Mula" data={getProducts('Exclusive Awal Mula')} />
+      <Products title="Exclusive Awal Mula" data={getProducts('Exclusive Awal Mula')} path="/exclusive" />
       <Lifestyle listLifestyle={listLifestyle} />
-      <Products title="Semua Produk" data={getProducts()} />
+      <Products title="Semua Produk" data={getProducts()} path="/products" />
       <Footer />
     </>
   );

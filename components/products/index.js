@@ -1,9 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 import { Box, Typography } from '@mui/material';
 import Product from '../product';
 
-const Products = ({ title, data, filled = false }) => (
+const Products = ({
+  title,
+  data,
+  path,
+  filled = false,
+}) => (
   <Box
     sx={{
       maxWidth: 'lg',
@@ -23,9 +29,11 @@ const Products = ({ title, data, filled = false }) => (
         {title}
       </Typography>
       {!filled && (
-        <Typography variant="caption" color="text.secondary">
-          Lihat Semua
-        </Typography>
+        <Link href={path}>
+          <Typography variant="caption" color="text.secondary" sx={{ cursor: 'pointer' }}>
+            Lihat Semua
+          </Typography>
+        </Link>
       )}
     </Box>
     <Box
@@ -53,6 +61,7 @@ const Products = ({ title, data, filled = false }) => (
 
 Products.propTypes = {
   title: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
   data: PropTypes.array,
   filled: PropTypes.bool,
 };

@@ -8,6 +8,7 @@ import {
   Typography,
   InputBase,
 } from '@mui/material';
+import Link from 'next/link';
 import { Menu, Search } from '@mui/icons-material';
 
 const SearchWrapper = styled('div')(({ theme, trigger }) => ({
@@ -57,15 +58,17 @@ export default function Topbar({ trigger = false }) {
         >
           <Menu />
         </IconButton>
-        <Typography
-          variant="h6"
-          noWrap
-          component="div"
-          color={!trigger && 'primary'}
-          sx={{ flexGrow: 1, display: 'block' }}
-        >
-          E-Catalog
-        </Typography>
+        <Link href="/">
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            color={!trigger && 'primary'}
+            sx={{ flexGrow: 1, display: 'block', cursor: 'pointer' }}
+          >
+            E-Catalog
+          </Typography>
+        </Link>
         <SearchWrapper trigger={trigger}>
           <SearchIconWrapper>
             <Search />
