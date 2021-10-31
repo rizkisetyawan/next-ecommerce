@@ -2,31 +2,29 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {
   Header,
-  Products,
+  ProductDetail,
   Footer,
 } from '../../components';
-import { getProducts } from '../../services';
+import { getProduct } from '../../services';
 
-export default function CategoryPage({ title, data }) {
+export default function DetailProductPage({ data }) {
   return (
     <>
       <Header />
-      <Products title={`Category ${title}`} data={data} filled />
+      <ProductDetail data={data} />
       <Footer />
     </>
   );
 }
 
-CategoryPage.propTypes = {
-  title: PropTypes.string,
+DetailProductPage.propTypes = {
   data: PropTypes.array,
 };
 
 export async function getServerSideProps({ params }) {
   return {
     props: {
-      title: params.name,
-      data: getProducts(params.name),
+      data: getProduct(params.name),
     },
   };
 }

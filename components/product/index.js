@@ -10,6 +10,7 @@ import {
   useMediaQuery,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { rp } from '../../utils';
 
@@ -25,9 +26,11 @@ export default function Product({ data }) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
   const valSize = matches ? 185 : 145;
+  const router = useRouter();
+
   return (
     <Card variant="outlined" sx={{ width: valSize, flexShrink: 0 }}>
-      <CardActionArea>
+      <CardActionArea onClick={() => router.push(`/product/${name}`)}>
         <Image
           width={valSize}
           height={valSize}

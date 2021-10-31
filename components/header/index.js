@@ -99,7 +99,7 @@ export default function Header({ window }) {
           <Box sx={{ display: 'flex', gap: 3 }}>
             {
               listNav.map(({ title, path }) => (
-                <Link href={path}>
+                <Link key={title} href={path}>
                   <NavItem color={path === router.pathname ? 'primary' : 'textPrimary'}>{title}</NavItem>
                 </Link>
               ))

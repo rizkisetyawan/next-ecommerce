@@ -69,10 +69,13 @@ const getCategory = async () => {
   return resJson;
 };
 
+const getProduct = (name) => DummyProduct.find((row) => row.name === name);
+
 // eslint-disable-next-line max-len
 const getProducts = (type) => (type ? DummyProduct.filter((row) => row.type === type) : DummyProduct);
 
 export {
   getCategory,
+  getProduct,
   getProducts,
 };
