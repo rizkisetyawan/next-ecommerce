@@ -3,29 +3,32 @@ import PropTypes from 'prop-types';
 import { Box, Typography } from '@mui/material';
 import Product from '../product';
 
-const Products = ({ title, data }) => (
-  <Box sx={{ px: 2 }}>
+const Products = ({ title, data, filled = false }) => (
+  <Box sx={{ px: 2, mt: !filled ? 0 : 2 }}>
     <Box
       sx={{
-        mb: 1,
+        mb: !filled ? 1 : 2,
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: !filled ? 'space-between' : 'center',
       }}
     >
       <Typography variant="subtitle1">
         {title}
       </Typography>
-      <Typography variant="caption" color="text.secondary">
-        Lihat Semua
-      </Typography>
+      {!filled && (
+        <Typography variant="caption" color="text.secondary">
+          Lihat Semua
+        </Typography>
+      )}
     </Box>
     <Box
       sx={{
         pb: 1,
         mb: 2,
         display: 'flex',
+        justifyContent: !filled ? 'flex-start' : 'center',
+        flexWrap: !filled ? 'nowrap' : 'wrap',
         gap: 1,
-        flexWrap: 'nowrap',
         overflowX: 'auto',
         '::-webkit-scrollbar': {
           display: 'none',
@@ -44,6 +47,7 @@ const Products = ({ title, data }) => (
 Products.propTypes = {
   title: PropTypes.string.isRequired,
   data: PropTypes.array,
+  filled: PropTypes.bool,
 };
 
 export default Products;

@@ -6,25 +6,27 @@ import {
 import Product from '../product';
 import { getProducts } from '../../services';
 
-const Lifestyle = ({ listLifestyle }) => {
+const Lifestyle = ({ listLifestyle, filled = false }) => {
   const [state, setState] = useState(null);
   const [stateChild, setStateChild] = useState(null);
 
   return (
-    <Box sx={{ px: 2 }}>
+    <Box sx={{ px: 2, mt: !filled ? 0 : 2 }}>
       <Box
         sx={{
-          mb: 1,
+          mb: !filled ? 1 : 2,
           display: 'flex',
-          justifyContent: 'space-between',
+          justifyContent: !filled ? 'space-between' : 'center',
         }}
       >
         <Typography variant="subtitle1">
           Lifestyle
         </Typography>
-        <Typography variant="caption" color="text.secondary">
-          Lihat Semua
-        </Typography>
+        {!filled && (
+          <Typography variant="caption" color="text.secondary">
+            Lihat Semua
+          </Typography>
+        )}
       </Box>
       <Stack
         direction="row"
@@ -85,8 +87,9 @@ const Lifestyle = ({ listLifestyle }) => {
           pb: 1,
           mb: 2,
           display: 'flex',
+          justifyContent: !filled ? 'flex-start' : 'center',
+          flexWrap: !filled ? 'nowrap' : 'wrap',
           gap: 1,
-          flexWrap: 'nowrap',
           overflowX: 'auto',
           '::-webkit-scrollbar': {
             display: 'none',
@@ -105,6 +108,7 @@ const Lifestyle = ({ listLifestyle }) => {
 
 Lifestyle.propTypes = {
   listLifestyle: PropTypes.array,
+  filled: PropTypes.bool,
 };
 
 export default Lifestyle;
