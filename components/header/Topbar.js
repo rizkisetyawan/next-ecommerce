@@ -39,7 +39,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create('width'),
     width: '12ch',
     '&:focus': {
-      width: '20ch',
+      width: '17ch',
     },
   },
 }));

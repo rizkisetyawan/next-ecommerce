@@ -11,7 +11,14 @@ const Lifestyle = ({ listLifestyle, filled = false }) => {
   const [stateChild, setStateChild] = useState(null);
 
   return (
-    <Box sx={{ px: 2, mt: !filled ? 0 : 2 }}>
+    <Box
+      sx={{
+        maxWidth: 'lg',
+        px: 2,
+        mx: 'auto',
+        mt: !filled ? 0 : 2,
+      }}
+    >
       <Box
         sx={{
           mb: !filled ? 1 : 2,

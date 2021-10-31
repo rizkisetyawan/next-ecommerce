@@ -4,7 +4,14 @@ import { Box, Typography } from '@mui/material';
 import Product from '../product';
 
 const Products = ({ title, data, filled = false }) => (
-  <Box sx={{ px: 2, mt: !filled ? 0 : 2 }}>
+  <Box
+    sx={{
+      maxWidth: 'lg',
+      px: 2,
+      mt: !filled ? 0 : 2,
+      mx: 'auto',
+    }}
+  >
     <Box
       sx={{
         mb: !filled ? 1 : 2,

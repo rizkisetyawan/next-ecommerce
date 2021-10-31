@@ -4,7 +4,13 @@ import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 
 const Kategori = ({ listKatPro }) => (
-  <Box sx={{ px: 2 }}>
+  <Box
+    sx={{
+      maxWidth: 'lg',
+      px: 2,
+      mx: 'auto',
+    }}
+  >
     <Typography variant="subtitle1" sx={{ mb: 1 }}>
       Kategori
     </Typography>

@@ -5,7 +5,14 @@ import Image from 'next/image';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const Slider = () => (
-  <Box sx={{ px: 2, overflow: 'hidden' }}>
+  <Box
+    sx={{
+      maxWidth: 'lg',
+      px: 2,
+      mx: 'auto',
+      overflow: 'hidden',
+    }}
+  >
     <Carousel
       showStatus={false}
       showArrows={false}
