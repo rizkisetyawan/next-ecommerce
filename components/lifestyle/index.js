@@ -1,12 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Box, Typography, Stack, Chip,
 } from '@mui/material';
-import Product from '../product';
-// import Image from 'next/image';
+// import Product from '../product';
 
-const Lifestyle = () => (
-  <>
+const Lifestyle = ({ listLifestyle }) => (
+  <Box sx={{ px: 2 }}>
     <Box
       sx={{
         mb: 1,
@@ -21,7 +21,6 @@ const Lifestyle = () => (
         Lihat Semua
       </Typography>
     </Box>
-
     <Stack
       direction="row"
       spacing={1}
@@ -35,17 +34,44 @@ const Lifestyle = () => (
         },
       }}
     >
-      <Chip label="Diet" color="primary" variant="outlined" />
-      <Chip label="Nutrient Claims" color="primary" variant="outlined" />
-      <Chip label="Better Sleep" color="primary" variant="outlined" />
-      <Chip label="Immune Booster" color="primary" variant="outlined" />
-      <Chip label="Weight Loss" color="primary" variant="outlined" />
-      <Chip label="Stress & Anxiety Relieve" color="primary" variant="outlined" />
+      {
+        listLifestyle.map((row) => (
+          <Chip
+            key={row.id}
+            label={row.name}
+            color="primary"
+            variant="outlined"
+          />
+        ))
+      }
     </Stack>
-
+    <Stack
+      direction="row"
+      spacing={1}
+      sx={{
+        mb: 1,
+        display: 'flex',
+        flexWrap: 'nowrap',
+        overflowX: 'auto',
+        '::-webkit-scrollbar': {
+          display: 'none',
+        },
+      }}
+    >
+      {
+        listLifestyle.map((row) => (
+          <Chip
+            key={row.id}
+            label={row.name}
+            color="secondary"
+            variant="outlined"
+          />
+        ))
+      }
+    </Stack>
     <Box
       sx={{
-        p: 1,
+        pb: 1,
         mb: 2,
         display: 'flex',
         gap: 1,
@@ -56,13 +82,17 @@ const Lifestyle = () => (
         },
       }}
     >
+      {/* <Product />
       <Product />
       <Product />
       <Product />
-      <Product />
-      <Product />
+      <Product /> */}
     </Box>
-  </>
+  </Box>
 );
+
+Lifestyle.propTypes = {
+  listLifestyle: PropTypes.array,
+};
 
 export default Lifestyle;

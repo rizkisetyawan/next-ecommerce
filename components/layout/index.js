@@ -37,8 +37,8 @@ export default function Layout({ children, window }) {
         <Topbar />
       </ElevationScroll>
       <Toolbar />
-      <Container>
-        <Box sx={{ my: 2 }}>
+      <Container sx={{ p: 0 }}>
+        <Box>
           {children}
         </Box>
       </Container>

@@ -1,33 +1,67 @@
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea, Rating } from '@mui/material';
+import PropTypes from 'prop-types';
+import {
+  Card,
+  CardContent,
+  Typography,
+  CardActionArea,
+  Rating,
+  Box,
+} from '@mui/material';
+import Image from 'next/image';
+import { rp } from '../../utils';
 
-export default function Product() {
+export default function Product({ data }) {
+  const {
+    name,
+    image,
+    price,
+    location,
+    rates,
+    sales,
+  } = data;
   return (
     <Card variant="outlined" sx={{ width: 145, flexShrink: 0 }}>
       <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image="https://media-www.awalmula.co.id/Banner-06.png"
-          alt="green iguana"
+        <Image
+          width={145}
+          height={145}
+          src={image}
+          alt={name}
         />
-        <CardContent sx={{ pb: 1 }}>
+        <CardContent
+          sx={{
+            height: 130,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+          }}
+        >
           <Typography gutterBottom variant="body1" sx={{ fontSize: 13 }}>
-            Lizard
+            {name}
           </Typography>
-          <Typography variant="body2" sx={{ fontWeight: 600 }}>
-            Rp. 15.000
-          </Typography>
-          <Typography variant="subtitle2" color="GrayText.secondary" sx={{ fontSize: 12, fontWeight: 200 }}>
-            Kota Tangerang
-          </Typography>
-          <Rating name="read-only" value={4} size="small" readOnly />
+          <Box>
+            <Typography variant="body2" color="primary" sx={{ fontWeight: 600 }}>
+              Rp.
+              {' '}
+              {rp(price)}
+            </Typography>
+            <Typography variant="subtitle2" color="GrayText.secondary" sx={{ fontSize: 12, fontWeight: 200 }}>
+              {location}
+            </Typography>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+              <Rating name="read-only" value={rates} size="small" sx={{ fontSize: 16 }} readOnly />
+              <Typography variant="subtitle2" color="GrayText.secondary" sx={{ fontSize: 12, fontWeight: 200 }}>
+                {sales}
+              </Typography>
+            </Box>
+          </Box>
         </CardContent>
       </CardActionArea>
     </Card>
   );
 }
+
+Product.propTypes = {
+  data: PropTypes.object,
+};
