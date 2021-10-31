@@ -1,10 +1,10 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Toolbar from '@mui/material/Toolbar';
-import CssBaseline from '@mui/material/CssBaseline';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
-// import Box from '@mui/material/Box';
-// import Container from '@mui/material/Container';
+import {
+  Toolbar,
+  CssBaseline,
+  useScrollTrigger,
+} from '@mui/material';
 import Topbar from './Topbar';
 
 function ElevationScroll({ children, window }) {
@@ -24,7 +24,7 @@ ElevationScroll.propTypes = {
   window: PropTypes.func,
 };
 
-export default function Layout({ window }) {
+export default function Header({ window }) {
   return (
     <>
       <CssBaseline />
@@ -32,16 +32,10 @@ export default function Layout({ window }) {
         <Topbar />
       </ElevationScroll>
       <Toolbar />
-      {/* <Container sx={{ p: 0 }}>
-        <Box>
-          {children}
-        </Box>
-      </Container> */}
     </>
   );
 }
 
-Layout.propTypes = {
-  // children: PropTypes.node,
+Header.propTypes = {
   window: PropTypes.func,
 };

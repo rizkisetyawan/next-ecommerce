@@ -2,9 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Typography } from '@mui/material';
 import Product from '../product';
-// import Image from 'next/image';
 
-const Exclusive = ({ products }) => (
+const Products = ({ title, data }) => (
   <Box sx={{ px: 2 }}>
     <Box
       sx={{
@@ -14,7 +13,7 @@ const Exclusive = ({ products }) => (
       }}
     >
       <Typography variant="subtitle1">
-        Exclusive Awal Mula
+        {title}
       </Typography>
       <Typography variant="caption" color="text.secondary">
         Lihat Semua
@@ -34,7 +33,7 @@ const Exclusive = ({ products }) => (
       }}
     >
       {
-        products.map((row) => (
+        data.map((row) => (
           <Product key={row.id} data={row} />
         ))
       }
@@ -42,8 +41,9 @@ const Exclusive = ({ products }) => (
   </Box>
 );
 
-Exclusive.propTypes = {
-  products: PropTypes.array,
+Products.propTypes = {
+  title: PropTypes.string.isRequired,
+  data: PropTypes.array,
 };
 
-export default Exclusive;
+export default Products;

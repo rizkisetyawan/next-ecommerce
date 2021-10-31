@@ -1,15 +1,17 @@
 import Kategori from './kategori';
-import Layout from './layout';
+import Header from './header';
 import Lifestyle from './lifestyle';
-import Exclusive from './exclusive';
+import Products from './products';
 import Product from './product';
 import Slider from './slider';
+import Footer from './footer';
 
 export {
   Kategori,
-  Layout,
+  Header,
+  Footer,
   Lifestyle,
-  Exclusive,
+  Products,
   Product,
   Slider,
 };
