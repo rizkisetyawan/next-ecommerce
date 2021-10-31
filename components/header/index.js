@@ -12,6 +12,7 @@ import {
 } from '@mui/material';
 import { useTheme, styled } from '@mui/material/styles';
 import Topbar from './Topbar';
+import Drawer from './Drawer';
 
 const listNav = [
   {
@@ -56,10 +57,23 @@ export default function Header({ window }) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
   const router = useRouter();
+  const [state, setState] = React.useState(false);
+
+  const toggleDrawer = (open) => (event) => {
+    if (
+      event.type === 'keydown'
+      && (event.key === 'Tab' || event.key === 'Shift')
+    ) {
+      return;
+    }
+
+    setState(open);
+  };
 
   return (
     <>
       <CssBaseline />
+      <Drawer listNav={listNav} open={state} toggleDrawer={toggleDrawer} />
       {matches && (
         <Box
           sx={{
@@ -96,7 +110,7 @@ export default function Header({ window }) {
       {!matches && (
         <>
           <ElevationScroll window={window}>
-            <Topbar />
+            <Topbar toggleDrawer={toggleDrawer} />
           </ElevationScroll>
           <Toolbar />
         </>
