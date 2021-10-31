@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Box, Typography, Stack, Chip,
+  Box, Typography, Stack, Chip, useMediaQuery,
 } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import Link from 'next/link';
 import Product from '../product';
 import { getProducts } from '../../services';
 
 const Lifestyle = ({ listLifestyle, filled = false }) => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('md'));
   const [state, setState] = useState(null);
   const [stateChild, setStateChild] = useState(null);
 
@@ -18,6 +21,7 @@ const Lifestyle = ({ listLifestyle, filled = false }) => {
         px: 2,
         mx: 'auto',
         mt: !filled ? 0 : 2,
+        mb: matches ? 5 : 2,
       }}
     >
       <Box
@@ -27,12 +31,12 @@ const Lifestyle = ({ listLifestyle, filled = false }) => {
           justifyContent: !filled ? 'space-between' : 'center',
         }}
       >
-        <Typography variant="subtitle1">
+        <Typography variant="subtitle1" sx={{ fontSize: matches ? 24 : 16 }}>
           Lifestyle
         </Typography>
         {!filled && (
           <Link href="/lifestyle">
-            <Typography variant="caption" color="text.secondary" sx={{ cursor: 'pointer' }}>
+            <Typography variant="caption" color="primary" sx={{ display: 'block', cursor: 'pointer', fontSize: matches ? 16 : 12 }}>
               Lihat Semua
             </Typography>
           </Link>
@@ -95,7 +99,6 @@ const Lifestyle = ({ listLifestyle, filled = false }) => {
       <Box
         sx={{
           pb: 1,
-          mb: 2,
           display: 'flex',
           justifyContent: !filled ? 'flex-start' : 'center',
           flexWrap: !filled ? 'nowrap' : 'wrap',

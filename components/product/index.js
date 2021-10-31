@@ -7,7 +7,9 @@ import {
   CardActionArea,
   Rating,
   Box,
+  useMediaQuery,
 } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import Image from 'next/image';
 import { rp } from '../../utils';
 
@@ -20,12 +22,15 @@ export default function Product({ data }) {
     rates,
     sales,
   } = data;
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('md'));
+  const valSize = matches ? 185 : 145;
   return (
-    <Card variant="outlined" sx={{ width: 145, flexShrink: 0 }}>
+    <Card variant="outlined" sx={{ width: valSize, flexShrink: 0 }}>
       <CardActionArea>
         <Image
-          width={145}
-          height={145}
+          width={valSize}
+          height={valSize}
           src={image}
           alt={name}
         />
