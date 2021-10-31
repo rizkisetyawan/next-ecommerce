@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import {
   Box, Typography, Stack, Chip,
 } from '@mui/material';
-// import Product from '../product';
+import Product from '../product';
+import { getProducts } from '../../services';
 
 const Lifestyle = ({ listLifestyle }) => {
   const [state, setState] = useState(null);
@@ -92,11 +93,11 @@ const Lifestyle = ({ listLifestyle }) => {
           },
         }}
       >
-        {/* <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product /> */}
+        {
+          stateChild && getProducts(stateChild.name).map((row) => (
+            <Product key={row.id} data={row} />
+          ))
+        }
       </Box>
     </Box>
   );

@@ -6,7 +6,11 @@ import {
 import { getCategory, getProducts } from '../services';
 import { getChildrenData } from '../utils';
 
-export default function Home({ listLifestyle, listKatPro, productExclusive }) {
+export default function Home({
+  listLifestyle,
+  listKatPro,
+  productExclusive,
+}) {
   return (
     <>
       <Layout />
@@ -31,6 +35,7 @@ export async function getServerSideProps() {
       listKatPro: getChildrenData(res.children_data, 'Kategori Produk'),
       listLifestyle: getChildrenData(res.children_data, 'Lifestyle'),
       productExclusive: getProducts('Exclusive Awal Mula'),
+      productLifestyle: getProducts('Lifestyle'),
     },
   };
 }

@@ -1,20 +1,5 @@
 const URL = 'https://staging-am.awalmula.co.id/rest/default/V1/categories';
 
-const format = [
-  {
-    id: 1,
-    type: 'Exclusive Awal Mula',
-    name: '',
-    price: 1,
-    location: '',
-    rates: 4.0,
-    sales: 1,
-    image: '',
-  },
-];
-
-console.log(format);
-
 const DummyProduct = [
   {
     id: 1,
@@ -45,6 +30,36 @@ const DummyProduct = [
     rates: 4.0,
     sales: 265,
     image: 'https://media-www.awalmula.co.id/catalog/product/cache/06a2b2d0b3b3bcee577608c878a0377c/t/o/to_our_finest_skin.png',
+  },
+  {
+    id: 4,
+    type: 'Vegan',
+    name: 'Sagon Bakar 100gr',
+    price: 42000,
+    location: 'Cileungsi',
+    rates: 4.0,
+    sales: 24,
+    image: 'https://media-www.awalmula.co.id/catalog/product/cache/06a2b2d0b3b3bcee577608c878a0377c/b/h/bhumi-rasa_0027_dsc03396_1.png',
+  },
+  {
+    id: 5,
+    type: 'Vegan',
+    name: 'Temulawak Celup',
+    price: 25000,
+    location: 'Cileungsi',
+    rates: 4.0,
+    sales: 62,
+    image: 'https://media-www.awalmula.co.id/catalog/product/cache/06a2b2d0b3b3bcee577608c878a0377c/t/e/temulawak_1_1.png',
+  },
+  {
+    id: 6,
+    type: 'Vegan',
+    name: 'Jahe Rempah Celup',
+    price: 25000,
+    location: 'Cileungsi',
+    rates: 4.0,
+    sales: 88,
+    image: 'https://media-www.awalmula.co.id/catalog/product/cache/06a2b2d0b3b3bcee577608c878a0377c/p/u/putriwangi_jahe-rempah_1.png',
   },
 ];
 
