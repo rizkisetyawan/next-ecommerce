@@ -39,7 +39,6 @@ export default function Product({ data }) {
         />
         <CardContent
           sx={{
-            height: 130,
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
