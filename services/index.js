@@ -131,6 +131,36 @@ const DummyProduct = [
     sales: 356,
     image: 'https://media-www.awalmula.co.id/catalog/product/cache/06a2b2d0b3b3bcee577608c878a0377c/c/e/cemal_cemil_dari_ibu.png',
   },
+  {
+    id: 14,
+    type: 'Exclusive Awal Mula',
+    name: 'Talasi Untuk Indonesia',
+    price: 96500,
+    location: 'Kota Jambi',
+    rates: 4.3,
+    sales: 513,
+    image: 'https://media-www.awalmula.co.id/catalog/product/cache/06a2b2d0b3b3bcee577608c878a0377c/t/a/talasi_apa_ya.png',
+  },
+  {
+    id: 15,
+    type: 'Exclusive Awal Mula',
+    name: 'Home Gym Cleaner',
+    price: 205000,
+    location: 'Semarang',
+    rates: 4.8,
+    sales: 52,
+    image: 'https://media-www.awalmula.co.id/catalog/product/cache/06a2b2d0b3b3bcee577608c878a0377c/d/u/dust_busters.png',
+  },
+  {
+    id: 16,
+    type: 'Exclusive Awal Mula',
+    name: 'The Tempetation',
+    price: 111000,
+    location: 'Yogyakarta',
+    rates: 4.2,
+    sales: 90,
+    image: 'https://media-www.awalmula.co.id/catalog/product/cache/06a2b2d0b3b3bcee577608c878a0377c/t/h/the_tempetation.png',
+  },
 ];
 
 const getCategory = async () => {
